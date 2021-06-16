@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static './estilo_img/anime.css' %}">
+    <link rel="stylesheet" href="{% static './estilo_img/detalhe.css' %}">
+
+    <title>Animes detalhe</title>
+</head>
+
+<body>
+    <!--Menu de navegação-->
+    <nav>
+        <a href="{% url 'index' %}" id="menu_anime">Anime</a>
+        <a href="{% url 'manga' %}" id="menu_manga">Mangá</a>
+    </nav>
+
+    <!--imagem-->
+    {% if anime.foto %}
+    <img src="{{ anime.foto.url }}" alt="haikkyu">
+    {% else %}
+    <img src="{% static './estilo_img/imagens/haikkyu.jpg' %}" alt="haikkyu">
+    {% endif %}
+
+
+
+    <!--dados-->
+    <p>{{ anime.nome }}</p>
+    <p>Autor: {{ anime.autor.all|join:", "  }}</p>
+    <p>Ano de lançamento: {{anime.ano_lancamento|date:'Y'}}</p>
+    <p>Estudio: {{ anime.estudio}}</p>
+
+
+
+</body>
+
+</html>

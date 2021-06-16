@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    {% load pwa %}
+    {% progressive_web_app_meta %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'icones/icons8-naruto-sign-210.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static './estilo_img/anime.css' %}">
+
+    <title>Animes</title>
+</head>
+
+<body>
+    <!--Menu de navegação-->
+    <nav>
+        <a href="{% url 'index' %}" id="menu_anime">Anime</a>
+        <a href="{% url 'manga' %}" id="menu_manga">Mangá</a>
+    </nav>
+
+    <!--bara de pesquisa-->
+    <div id="div_de_pesquisa">
+        <form action="{% url 'busca' %}" method="get">
+            <input type="search" name="termo" id="bara_de_pesquisa" placeholder="Pesquise">
+        </form>
+    </div>
+
+
+    <p>Minha lista de <span>Animes</span></p>
+
+    <!--Tabela-->
+    <table>
+        <tr>
+            <th>Anime</th>
+            <th>Autor</th>
+        </tr>
+        {% for anime in animes %}
+        <tr>
+            <td><a href="{% url 'ver_detalhe' anime.id %}">{{ anime.nome }}</a></td>
+            <td>{{ anime.autor.all|join:", " }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <!--Paginação-->
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        {% for pagina in animes.paginator.page_range %}
+            <a {% if animes.number == pagina %} class="active" {% endif %} href="?p={{ pagina }}">{{pagina}}</a>
+        {% endfor %}
+        <a href="#">&raquo;</a>
+    </div>
+
+    <!--PWA-->
+    <script src="./"></script>
+
+
+
+</body>
+
+</html>
