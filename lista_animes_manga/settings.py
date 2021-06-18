@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'anime.apps.AnimeConfig',
-    'pwa',
+
 
 ]
 
@@ -128,40 +128,6 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'media/'
-
-# PWA
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'templates/static/serviceworker', 'serviceworker.js')
-
-PWA_APP_NAME = 'Ani-Mangá.List'
-PWA_APP_DESCRIPTION = "Ani-Mangá.List PWA"
-PWA_APP_THEME_COLOR = '#000000'
-PWA_APP_BACKGROUND_COLOR = '#ffffff'
-PWA_APP_DISPLAY = 'standalone'
-PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/'
-PWA_APP_STATUS_BAR_COLOR = 'default'
-PWA_APP_ICONS = [
-	{
-		'src': 'static/icones/icons8-naruto-sign-210.png',
-		'sizes': '210x210'
-	}
-]
-PWA_APP_ICONS_APPLE = [
-	{
-		'src': 'static/icones/icons8-naruto-sign-512.png',
-		'sizes': '512x512'
-	}
-]
-PWA_APP_SPLASH_SCREEN = [
-	{
-		'src': 'static/icones/icons8-naruto-sign-210.png',
-		'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
-	}
-]
-PWA_APP_DIR = 'ltr'
-PWA_APP_LANG = 'pt'
-
 
 
 
