@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-1#)4w!p5#x86$dxdvmq3+d_b4@7v)vm3b9eiie_d-pj!r99c)d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://git.heroku.com/ani-mangalist-dj.git']
 
 
 # Application definition
