@@ -1,1 +1,0 @@
-web: gunicorn lista_animes_manga.wsgi
