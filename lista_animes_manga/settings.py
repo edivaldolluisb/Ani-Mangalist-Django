@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+# heroku
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-1#)4w!p5#x86$dxdvmq3+d_b4@7v)vm3b9eiie_d-pj!r99c)d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ani-mangalist-dj.herokuapp.com/', 'https://git.heroku.com/ani-mangalist-dj.git']
 
 
 # Application definition
@@ -169,3 +171,7 @@ PWA_APP_LANG = 'pt'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# heroku
+django_heroku.settings(locals())
