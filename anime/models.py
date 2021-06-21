@@ -32,6 +32,7 @@ class Anime(models.Model):
     def __str__(self):
         return self.nome
 
+
 class Manga(models.Model):
     nome = models.CharField(max_length=150)
     nome_alternativo = models.CharField(max_length=150, blank=True)
