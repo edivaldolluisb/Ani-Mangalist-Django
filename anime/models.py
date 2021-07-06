@@ -22,12 +22,15 @@ class Anime(models.Model):
     nome = models.CharField(max_length=150)
     nome_alternativo = models.CharField(max_length=150, blank=True)
     ano_lancamento = models.DateField(default=timezone.now)
-    autor = models.ManyToManyField(Autor)
-    estudio = models.ForeignKey(Estudio, on_delete=models.DO_NOTHING)
+    autor = models.ForeignKey(Autor, on_delete=models.DO_NOTHING, default=4)
+    estudio = models.ManyToManyField(Estudio)
     foto = models.ImageField(blank=True, upload_to='fotos/fotos_anime/%Y%m%d')
 
-    def autores(self):
-        return ','.join([autor.nome for autor in self.autor.all])
+    def estudios(self):
+        return ','.join([estudio.nome for estudio in self.estudio.all])
+
+    '''def autores(self):
+        return ','.join([autor.nome for autor in self.autor.all])'''
 
     def __str__(self):
         return self.nome
@@ -37,12 +40,15 @@ class Manga(models.Model):
     nome = models.CharField(max_length=150)
     nome_alternativo = models.CharField(max_length=150, blank=True)
     ano_lancamento = models.DateField(default=timezone.now)
-    autor = models.ManyToManyField(Autor)
-    estudio = models.ForeignKey(Estudio, on_delete=models.DO_NOTHING)
+    autor = models.ForeignKey(Autor, on_delete=models.DO_NOTHING, default=4)
+    estudio = models.ManyToManyField(Estudio)
     foto = models.ImageField(blank=True, upload_to='fotos/fotos_manga/%Y%m%d')
 
-    def autores(self):
-        return ','.join([autor.nome for autor in self.autor.all])
+    def estudios(self):
+        return ','.join([estudio.nome for estudio in self.estudio.all])
+
+    '''def autores(self):
+        return ','.join([autor.nome for autor in self.autor.all])'''
 
     def __str__(self):
         return self.nome

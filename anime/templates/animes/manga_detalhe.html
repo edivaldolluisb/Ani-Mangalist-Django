@@ -30,9 +30,12 @@
 
     <!--dados-->
     <p>{{manga.nome}}</p>
-    <p>Autor: {{ manga.autor.all|join:", "  }}</p>
+    {% if manga.nome_alternativo %}
+        <p>Nome alternativo: {{ manga.nome_alternativo }}</p>
+    {% endif %}
+    <p>Autor: {{ manga.autor }}</p>
     <p>Ano de lançamento: {{manga.ano_lancamento|date:'Y'}}</p>
-    <p>Estudio: {{ manga.estudio}}</p>
+    <p>Estudio: {{ manga.estudio.all|join:", " }}</p>
     
 
 

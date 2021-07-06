@@ -39,7 +39,7 @@
         {% for manga in mangas %}
         <tr>
             <td><a href="{% url 'manga_detalhe' manga.id %}">{{manga.nome}}</a></td>
-            <td>{{ manga.autor.all|join:", " }}</td>
+            <td>{{ manga.autor }}</td>
         </tr>
         {% endfor %}
     </table>

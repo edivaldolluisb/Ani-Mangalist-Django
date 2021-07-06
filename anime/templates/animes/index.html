@@ -39,7 +39,7 @@
         {% for anime in animes %}
         <tr>
             <td><a href="{% url 'ver_detalhe' anime.id %}">{{ anime.nome }}</a></td>
-            <td>{{ anime.autor.all|join:", " }}</td>
+            <td>{{ anime.autor }}</td>
         </tr>
         {% endfor %}
 
