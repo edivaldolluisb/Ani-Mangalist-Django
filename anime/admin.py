@@ -14,7 +14,7 @@ class MangaAdmin(admin.ModelAdmin):
     list_per_page = 4
     list_display_links = ('nome', 'id')
     list_display = ('id', 'nome', 'ano_lancamento', 'autor',)
-    search_fields = ('nome', 'nome_alternativo', 'autor', 'estudio', 'ano_lancamento')
+    search_fields = ('nome', 'nome_alternativo', 'autor', 'ano_lancamento')
 
 
 admin.site.register(Anime, AnimeAdmin)  #anime
