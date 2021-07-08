@@ -47,15 +47,21 @@
 
     <!--Paginação-->
     <div class="pagination">
-        <a href="#">&laquo;</a>
-        {% for pagina in animes.paginator.page_range %}
-            <a {% if animes.number == pagina %} class="active" {% endif %} href="?p={{ pagina }}">{{pagina}}</a>
-        {% endfor %}
-        <a href="#">&raquo;</a>
+        {% if animes.has_previous %}
+        <a href="?p={{ animes.previous_page_number }}">&laquo;</a>
+        <a href="?p={{ animes.previous_page_number }}">{{ animes.previous_page_number }}</a>
+        {% endif %}
+        <a>{{ animes.number }} / {{ animes.paginator.num_pages }}</a>
+        {% comment "Optional note - range de paginação" %}
+            {% for pagina in animes.paginator.page_range %}
+                <a {% if animes.number == pagina %} class="active" {% endif %} href="?p={{ pagina }}">{{pagina}}</a>
+            {% endfor %}
+        {% endcomment %}
+        {% if animes.has_next %}
+        <a href="?p={{ animes.next_page_number }}">{{ animes.next_page_number }}</a>
+        <a href="?p={{ animes.next_page_number }}">&raquo;</a>
+        {% endif %}
     </div>
-
-    <!--PWA-->
-    <script src="./"></script>
 
 
 
