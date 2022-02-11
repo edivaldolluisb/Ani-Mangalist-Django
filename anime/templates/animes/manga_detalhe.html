@@ -29,14 +29,15 @@
     {% endif %}
 
     <!--dados-->
-    <p>{{manga.nome}}</p>
-    {% if manga.nome_alternativo %}
+    <div>
+        <p>{{manga.nome}}</p>
+        {% if manga.nome_alternativo %}
         <p>Nome alternativo: {{ manga.nome_alternativo }}</p>
-    {% endif %}
-    <p>Autor: {{ manga.autor }}</p>
-    <p>Ano de lançamento: {{manga.ano_lancamento|date:'Y'}}</p>
+        {% endif %}
+        <p>Autor: {{ manga.autor }}</p>
+        <p>Ano de lançamento: {{manga.ano_lancamento|date:'Y'}}</p>
+    </div>
 
-    
 
 
 </body>

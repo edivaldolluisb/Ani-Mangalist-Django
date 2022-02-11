@@ -32,16 +32,20 @@
 
     <!--Tabela-->
     <table>
-        <tr>
-            <th>Mangas</th>
-            <th>Autor</th>
-        </tr>
-        {% for manga in mangas %}
-        <tr>
-            <td><a href="{% url 'manga_detalhe' manga.id %}">{{manga.nome}}</a></td>
-            <td>{{ manga.autor }}</td>
-        </tr>
-        {% endfor %}
+        <thead>
+            <tr>
+                <th>Mangas</th>
+                <th>Autor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for manga in mangas %}
+            <tr>
+                <td><a href="{% url 'manga_detalhe' manga.id %}">{{manga.nome}}</a></td>
+                <td>{{ manga.autor }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 
     <!--Paginação-->
