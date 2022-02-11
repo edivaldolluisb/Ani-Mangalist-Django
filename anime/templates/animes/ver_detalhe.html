@@ -31,13 +31,15 @@
 
 
     <!--dados-->
-    <p>{{ anime.nome }}</p>
-    {% if anime.nome_alternativo %}
-        <p>Nome alternativo: {{ anime.nome_alternativo }}</p>
-    {% endif %}
-    <p>Autor: {{ anime.autor  }}</p>
-    <p>Ano de lançamento: {{anime.ano_lancamento|date:'Y'}}</p>
-    <p>Estudio: {{ anime.estudio.all|join:", " }}</p>
+    <div>
+        <p>{{ anime.nome }}</p>
+        {% if anime.nome_alternativo %}
+            <p>Nome alternativo: {{ anime.nome_alternativo }}</p>
+        {% endif %}
+        <p>Autor: {{ anime.autor  }}</p>
+        <p>Ano de lançamento: {{anime.ano_lancamento|date:'Y'}}</p>
+        <p>Estudio: {{ anime.estudio.all|join:", " }}</p>
+    </div>
 
 
 
