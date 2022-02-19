@@ -25,6 +25,7 @@ class Anime(models.Model):
     autor = models.ForeignKey(Autor, on_delete=models.DO_NOTHING, default=4)
     estudio = models.ManyToManyField(Estudio)
     foto = models.ImageField(blank=True, upload_to='fotos/fotos_anime/%Y%m%d')
+    imagem_url = models.URLField(blank=True)
 
     def estudios(self):
         return ','.join([estudio.nome for estudio in self.estudio.all])
@@ -42,6 +43,7 @@ class Manga(models.Model):
     ano_lancamento = models.DateField(default=timezone.now)
     autor = models.ForeignKey(Autor, on_delete=models.DO_NOTHING, default=4)
     foto = models.ImageField(blank=True, upload_to='fotos/fotos_manga/%Y%m%d')
+    imagem_url = models.URLField(blank=True)
 
 
 
