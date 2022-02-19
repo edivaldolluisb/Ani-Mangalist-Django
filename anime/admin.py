@@ -6,12 +6,12 @@ from .models import Anime, Manga, Autor, Estudio
 class AnimeAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome', 'ano_lancamento', 'autor',)
     list_display_links = ('nome', 'id')
-    list_per_page = 4
+    list_per_page = 20
     search_fields = ('nome', 'nome_alternativo', 'autor', 'ano_lancamento',)
 
 
 class MangaAdmin(admin.ModelAdmin):
-    list_per_page = 4
+    list_per_page = 20
     list_display_links = ('nome', 'id')
     list_display = ('id', 'nome', 'ano_lancamento', 'autor',)
     search_fields = ('nome', 'nome_alternativo', 'autor', 'ano_lancamento')
