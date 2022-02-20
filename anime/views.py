@@ -12,7 +12,7 @@ from django.db.models.functions import Concat
 
 def index(request):
     animes = Anime.objects.order_by('nome')
-    paginator = Paginator(animes, 5)
+    paginator = Paginator(animes, 10)
 
     page = request.GET.get('p')
     animes = paginator.get_page(page)
@@ -40,7 +40,7 @@ def busca(request):
     )
     if termo is None or not termo:
         animes = Anime.objects.order_by('nome')
-    paginator = Paginator(animes, 5)
+    paginator = Paginator(animes, 10)
 
     page = request.GET.get('p')
     animes = paginator.get_page(page)
@@ -54,7 +54,7 @@ def busca(request):
 
 def manga(request):
     mangas = Manga.objects.order_by('nome')
-    paginator = Paginator(mangas, 5)
+    paginator = Paginator(mangas, 10)
 
     page = request.GET.get('p')
     mangas = paginator.get_page(page)
@@ -81,7 +81,7 @@ def manga_busca(request):
     )
     if termo is None or not termo:
         mangas = Manga.objects.order_by('nome')
-    paginator = Paginator(mangas, 5)
+    paginator = Paginator(mangas, 10)
 
     page = request.GET.get('p')
     mangas = paginator.get_page(page)
