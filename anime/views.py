@@ -5,6 +5,14 @@ from django.core.paginator import Paginator
 from django.db.models import Q, Value
 from django.db.models.functions import Concat
 
+# api imports
+from django.shortcuts import render
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from .serializers import AnimeSerializer, MangaSerializer
+
 # Create your views here.
 
 
@@ -91,3 +99,44 @@ def manga_busca(request):
     })
 
 
+# API
+
+
+@api_view(['GET'])
+def animeapiOverview(request):
+    api_urls = {
+        'List anime':'/anime-list/',
+        'Detail anime View':'/anime-detail/<str:pk>/',
+
+        'List manga': '/manga-list/',
+        'Detail manga View': '/manga-detail/<str:pk>/',
+    }
+    return Response(api_urls)
+
+
+@api_view(['GET'])
+def animeList(request):
+    animes = Anime.objects.all()
+    serializer = AnimeSerializer(animes, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def animeDetail(request, pk):
+    animes = Anime.objects.get(id=pk)
+    serializer = AnimeSerializer(animes, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def mangaList(request):
+    mangas = Manga.objects.all()
+    serializer = MangaSerializer(mangas, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def mangaDetail(request, pk):
+    mangas = Manga.objects.get(id=pk)
+    serializer = MangaSerializer(mangas, many=False)
+    return Response(serializer.data)
