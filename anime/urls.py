@@ -17,4 +17,6 @@ urlpatterns = [
 
     path('manga-list/', views.mangaList, name='mangalist'),
     path('manga-detail/<str:pk>/', views.mangaDetail, name='mangadetail'),
+
+    path('autor-list/', views.autorList, name='autorlist'),
 ]

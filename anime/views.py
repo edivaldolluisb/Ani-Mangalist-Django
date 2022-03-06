@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
-from .models import Anime, Manga
+from .models import Anime, Manga, Autor
 from django.core.paginator import Paginator
 from django.db.models import Q, Value
 from django.db.models.functions import Concat
@@ -11,7 +11,7 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .serializers import AnimeSerializer, MangaSerializer
+from .serializers import AnimeSerializer, MangaSerializer, AutorSerializer
 
 # Create your views here.
 
@@ -110,6 +110,8 @@ def animeapiOverview(request):
 
         'List manga': '/manga-list/',
         'Detail manga View': '/manga-detail/<str:pk>/',
+
+        'List autor': '/autor-list/',
     }
     return Response(api_urls)
 
@@ -139,4 +141,10 @@ def mangaList(request):
 def mangaDetail(request, pk):
     mangas = Manga.objects.get(id=pk)
     serializer = MangaSerializer(mangas, many=False)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def autorList(request):
+    autores = Autor.objects.all()
+    serializer = AutorSerializer(autores, many=True)
     return Response(serializer.data)
