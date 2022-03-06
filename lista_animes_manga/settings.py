@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'anime.apps.AnimeConfig',
     'rest_framework',
+    'corsheaders',
 
 ]
 
@@ -51,6 +52,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'lista_animes_manga.urls'
@@ -116,6 +120,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS: True
 
 
 # Static files (CSS, JavaScript, Images)
