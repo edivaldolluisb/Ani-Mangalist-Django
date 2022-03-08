@@ -118,7 +118,7 @@ def animeapiOverview(request):
 
 @api_view(['GET'])
 def animeList(request):
-    animes = Anime.objects.all()
+    animes = Anime.objects.prefetch_related('autor', 'estudio').all()
     serializer = AnimeSerializer(animes, many=True)
     return Response(serializer.data)
 
