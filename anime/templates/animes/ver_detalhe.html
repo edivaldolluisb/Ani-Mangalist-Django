@@ -23,7 +23,8 @@
 
     <!--imagem-->
     {% if anime.foto %}
-    <img src="{{ anime.foto.url }}" alt="haikkyu">
+    <img src="{{ anime.imagem_url }}" alt="{{ anime.nome }}">
+    <!--<img src="{{ anime.foto.url }}" alt="haikkyu">-->
     {% else %}
     <img src="{% static './estilo_img/imagens/haikkyu.jpg' %}" alt="haikkyu">
     {% endif %}
