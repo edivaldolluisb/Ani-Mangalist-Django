@@ -24,6 +24,7 @@ class AnimeSerializer(serializers.ModelSerializer):
 
 
 class MangaSerializer(serializers.ModelSerializer):
+    autor = AutorSerializer()
     class Meta:
         model = Manga
         fields = '__all__'
