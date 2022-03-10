@@ -44,7 +44,7 @@ def busca(request):
         #raise Http404()
 
     animes = Anime.objects.order_by('nome').filter(
-        Q(nome__icontains=termo) | Q(nome_alternativo__icontains=termo) | Q(autor__nome__icontains=termo),
+        Q(nome__icontains=termo) | Q(nome_alternativo__icontains=termo) | Q(autor__nome__icontains=termo)
     )
     if termo is None or not termo:
         animes = Anime.objects.order_by('nome')
