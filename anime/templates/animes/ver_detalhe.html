@@ -21,26 +21,26 @@
         <a href="{% url 'manga' %}" id="menu_manga">Mangá</a>
     </nav>
 
-    <!--imagem-->
-    {% if anime.foto %}
-    <img src="{{ anime.foto.url }}" alt="haikkyu">
-    {% else %}
-    <img src="{% static './estilo_img/imagens/haikkyu.jpg' %}" alt="haikkyu">
-    {% endif %}
-
-
-
-    <!--dados-->
-    <div>
-        <p>{{ anime.nome }}</p>
-        {% if anime.nome_alternativo %}
-            <p>Nome alternativo: {{ anime.nome_alternativo }}</p>
+    <section id="dados_detalhe">
+        <!--imagem-->
+        {% if anime.foto %}
+        <img src="{{ anime.foto.url }}" alt="haikkyu">
+        {% else %}
+        <img src="{% static './estilo_img/imagens/haikkyu.jpg' %}" alt="haikkyu">
         {% endif %}
-        <p>Autor: {{ anime.autor  }}</p>
-        <p>Ano de lançamento: {{anime.ano_lancamento|date:'Y'}}</p>
-        <p>Estudio: {{ anime.estudio.all|join:", " }}</p>
-    </div>
 
+
+        <!--dados-->
+        <div>
+            <p>{{ anime.nome }}</p>
+            {% if anime.nome_alternativo %}
+            <p>Nome alternativo: {{ anime.nome_alternativo }}</p>
+            {% endif %}
+            <p>Autor: {{ anime.autor }}</p>
+            <p>Ano de lançamento: {{anime.ano_lancamento|date:'Y'}}</p>
+            <p>Estudio: {{ anime.estudio.all|join:", " }}</p>
+        </div>
+    </section>
 
 
 </body>

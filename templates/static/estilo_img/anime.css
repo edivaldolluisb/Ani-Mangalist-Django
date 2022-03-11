@@ -5,11 +5,14 @@
     margin: 0;
 }
 body{
+    background: #4b3e3eb2 url(./imagens/haikkyu.jpg) no-repeat fixed center;
+    background-size: cover;
+    /*
     background-image: url(./imagens/haikkyu.jpg);
-    background-color: #4b3e3eb2; /* Used if the image is unavailable */ 
+    background-color: #4b3e3eb2;
     background-repeat: no-repeat;
     background-attachment: fixed;  
-    background-size: cover;
+    background-position: center;*/
 
 }
 nav {
@@ -133,18 +136,18 @@ tr:nth-child(even) {
 ::-webkit-scrollbar {
     width: 10px;
 }
-
+  
   /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #f1f1f1; 
 }
-
+   
   /* Handle */
 ::-webkit-scrollbar-thumb {
-    background:rgba(220, 182, 125, 0.85);
+    background:rgba(220, 182, 125, 0.85); 
 }
-
+  
   /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(220, 182, 125, 1);
+    background: rgba(220, 182, 125, 1); 
 }
