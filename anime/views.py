@@ -65,10 +65,13 @@ def manga(request):
     paginator = Paginator(mangas, 10)
 
     page = request.GET.get('p')
-    mangas = paginator.get_page(page)
+    mangas = paginator.get_page(page)    
+
+
     return render(request, 'animes/manga.html', {
         'mangas': mangas
-    })
+    })    
+
 
 
 def manga_detalhe(request, manga_id):
