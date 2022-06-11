@@ -23,8 +23,8 @@
 
     <section id="dados_detalhe">
         <!--imagem-->
-        {% if manga.foto %}
-        <img src="{{ manga.foto.url }}" alt="haikkyu">
+        {% if manga.imagem_url %}
+        <img src="{{ manga.imagem_url }}" alt="haikkyu">
         {% else %}
         <img src="{% static './estilo_img/imagens/haikkyu.jpg' %}" alt="haikkyu">
         {% endif %}
